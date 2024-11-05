@@ -477,6 +477,45 @@ Generate an reader root and corresponding private key:
 
     identityctl version
 """)
+
+        val dsPubKey = EcPublicKey.fromPem(
+            """-----BEGIN PUBLIC KEY-----
+MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEnmiWAMGIeo2E3usWRLL/EPfh1Bw5
+JHgq8RYzJvraMj5QZSh94CL/nlEi3vikGxDP34HjxZcjzGEimGg03sB6Ng==
+-----END PUBLIC KEY-----""",
+            EcCurve.P256
+        )
+
+        val dsPrivKey = EcPrivateKey.fromPem(
+            """-----BEGIN PRIVATE KEY-----
+MIGHAgEAMBMGByqGSM49AgEGCCqGSM49AwEHBG0wawIBAQQg/ANvinTxJAdR8nQ0
+NoUdBMcRJz+xLsb0kmhyMk+lkkGhRANCAASeaJYAwYh6jYTe6xZEsv8Q9+HUHDkk
+eCrxFjMm+toyPlBlKH3gIv+eUSLe+KQbEM/fgePFlyPMYSKYaDTewHo2
+-----END PRIVATE KEY-----""",
+            dsPubKey
+        )
+
+        val validFrom = Clock.System.now()
+        val validUntil = Instant.fromEpochMilliseconds(
+            validFrom.toEpochMilliseconds() + 10L * 365 * 24 * 60 * 60 * 1000
+        )
+
+        val cert = X509Cert.create(
+            dsPubKey,
+            dsPrivKey,
+            null,
+            Algorithm.ES256,
+            "1",
+            "CN=State Of Utopia",
+            "CN=State Of Utopia",
+            validFrom,
+            validUntil,
+            setOf(),
+            listOf()
+        )
+        println("cert:\n${cert.toPem()}")
+
+
     }
 
     fun version(args: Array<String>) {

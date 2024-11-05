@@ -18,6 +18,8 @@ import identitycredential.samples.testapp.generated.resources.android_keystore_s
 import identitycredential.samples.testapp.generated.resources.passphrase_entry_field_screen_title
 import identitycredential.samples.testapp.generated.resources.cloud_secure_area_screen_title
 import identitycredential.samples.testapp.generated.resources.consent_modal_bottom_sheet_list_screen_title
+import identitycredential.samples.testapp.generated.resources.mdoc_transport_multi_device_testing_title
+import identitycredential.samples.testapp.generated.resources.mdoc_transport_proximity_presentation_title
 import identitycredential.samples.testapp.generated.resources.qr_codes_screen_title
 import identitycredential.samples.testapp.generated.resources.secure_enclave_secure_area_screen_title
 import identitycredential.samples.testapp.generated.resources.software_secure_area_screen_title
@@ -33,6 +35,8 @@ fun StartScreen(
     onClickPassphraseEntryField: () -> Unit = {},
     onClickConsentSheetList: () -> Unit = {},
     onClickQrCodes: () -> Unit = {},
+    onClickMdocTransportProximityPresentation: () -> Unit = {},
+    onClickMdocTransportMultiDeviceTesting: () -> Unit = {},
 ) {
     Surface(
         modifier = Modifier.fillMaxSize(),
@@ -91,6 +95,18 @@ fun StartScreen(
             item {
                 TextButton(onClick = onClickQrCodes) {
                     Text(stringResource(Res.string.qr_codes_screen_title))
+                }
+            }
+
+            item {
+                TextButton(onClick = onClickMdocTransportProximityPresentation) {
+                    Text(stringResource(Res.string.mdoc_transport_proximity_presentation_title))
+                }
+            }
+
+            item {
+                TextButton(onClick = onClickMdocTransportMultiDeviceTesting) {
+                    Text(stringResource(Res.string.mdoc_transport_multi_device_testing_title))
                 }
             }
         }

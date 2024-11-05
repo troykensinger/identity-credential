@@ -8,6 +8,8 @@ import identitycredential.samples.testapp.generated.resources.android_keystore_s
 import identitycredential.samples.testapp.generated.resources.cloud_secure_area_screen_title
 import identitycredential.samples.testapp.generated.resources.consent_modal_bottom_sheet_list_screen_title
 import identitycredential.samples.testapp.generated.resources.consent_modal_bottom_sheet_screen_title
+import identitycredential.samples.testapp.generated.resources.mdoc_transport_multi_device_testing_title
+import identitycredential.samples.testapp.generated.resources.mdoc_transport_proximity_presentation_title
 import identitycredential.samples.testapp.generated.resources.passphrase_entry_field_screen_title
 import identitycredential.samples.testapp.generated.resources.qr_codes_screen_title
 import identitycredential.samples.testapp.generated.resources.secure_enclave_secure_area_screen_title
@@ -77,6 +79,16 @@ data object QrCodesDestination : Destination {
     override val title = Res.string.qr_codes_screen_title
 }
 
+data object MdocTransportProximityPresentationDestination : Destination {
+    override val route = "mdoc_transport_proximity_presentation"
+    override val title = Res.string.mdoc_transport_proximity_presentation_title
+}
+
+data object MdocTransportMultiDeviceTestingDestination : Destination {
+    override val route = "mdoc_transport_multi_device_testing"
+    override val title = Res.string.mdoc_transport_multi_device_testing_title
+}
+
 val appDestinations = listOf(
     StartDestination,
     AboutDestination,
@@ -88,4 +100,6 @@ val appDestinations = listOf(
     ConsentModalBottomSheetListDestination,
     ConsentModalBottomSheetDestination,
     QrCodesDestination,
+    MdocTransportProximityPresentationDestination,
+    MdocTransportMultiDeviceTestingDestination,
 )

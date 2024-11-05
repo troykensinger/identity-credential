@@ -26,6 +26,8 @@ import com.android.identity.documenttype.DocumentType
 import com.android.identity.documenttype.Icon
 import com.android.identity.documenttype.IntegerOption
 import com.android.identity.documenttype.StringOption
+import com.android.identity.util.fromBase64Url
+import com.android.identity.util.fromHex
 
 /**
  * Object containing the metadata of the Driving License
@@ -134,7 +136,7 @@ object DrivingLicense {
                 true,
                 MDL_NAMESPACE,
                 Icon.ACCOUNT_BOX,
-                null // TODO: include img_erika_portrait.jpg
+                SampleData.portrait.toDataItem()
             )
             .addAttribute(
                 DocumentAttributeType.ComplexType,

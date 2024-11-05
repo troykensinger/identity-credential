@@ -31,6 +31,8 @@ import com.android.identity.testapp.ui.AboutScreen
 import com.android.identity.testapp.ui.AndroidKeystoreSecureAreaScreen
 import com.android.identity.testapp.ui.ConsentModalBottomSheetListScreen
 import com.android.identity.testapp.ui.ConsentModalBottomSheetScreen
+import com.android.identity.testapp.ui.MdocTransportMultiDeviceTestingScreen
+import com.android.identity.testapp.ui.MdocTransportProximityPresentationScreen
 import com.android.identity.testapp.ui.PassphraseEntryFieldScreen
 import com.android.identity.testapp.ui.QrCodesScreen
 import com.android.identity.testapp.ui.SecureEnclaveSecureAreaScreen
@@ -95,7 +97,9 @@ class App {
                             onClickSecureEnclaveSecureArea = { navController.navigate(SecureEnclaveSecureAreaDestination.route) },
                             onClickPassphraseEntryField = { navController.navigate(PassphraseEntryFieldDestination.route) },
                             onClickConsentSheetList = { navController.navigate(ConsentModalBottomSheetListDestination.route) },
-                            onClickQrCodes = { navController.navigate(QrCodesDestination.route) }
+                            onClickQrCodes = { navController.navigate(QrCodesDestination.route) },
+                            onClickMdocTransportProximityPresentation = { navController.navigate(MdocTransportProximityPresentationDestination.route) },
+                            onClickMdocTransportMultiDeviceTesting = { navController.navigate(MdocTransportMultiDeviceTestingDestination.route) },
                         )
                     }
                     composable(route = AboutDestination.route) {
@@ -145,6 +149,16 @@ class App {
                     }
                     composable(route = QrCodesDestination.route) {
                         QrCodesScreen(
+                            showToast = { message -> showToast(message) }
+                        )
+                    }
+                    composable(route = MdocTransportProximityPresentationDestination.route) {
+                        MdocTransportProximityPresentationScreen(
+                            showToast = { message -> showToast(message) }
+                        )
+                    }
+                    composable(route = MdocTransportMultiDeviceTestingDestination.route) {
+                        MdocTransportMultiDeviceTestingScreen(
                             showToast = { message -> showToast(message) }
                         )
                     }

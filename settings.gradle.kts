@@ -61,3 +61,8 @@ include(":appverifier")
 include(":appholder")
 include(":server-env")
 include(":server-openid4vci")
+
+
+plugins {
+    id("org.gradle.toolchains.foojay-resolver-convention") version "0.8.0"
+}
